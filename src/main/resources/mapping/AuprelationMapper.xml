@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fection.www.mapper.AuprelationMapper">
+  <resultMap id="BaseResultMap" type="com.fection.www.pojo.AuprelationKey">
+    <id column="auid" jdbcType="INTEGER" property="auid" />
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.fection.www.pojo.AuprelationKey">
+    delete from au_p_relation
+    where auid = #{auid,jdbcType=INTEGER}
+      and pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fection.www.pojo.AuprelationKey">
+    insert into au_p_relation (auid, pid)
+    values (#{auid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fection.www.pojo.AuprelationKey">
+    insert into au_p_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="auid != null">
+        auid,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="auid != null">
+        #{auid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

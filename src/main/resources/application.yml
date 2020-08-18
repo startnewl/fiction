@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://101.200.189.99/bh?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
+    password: root
+    username: bh
+    driver-class-name: com.mysql.jdbc.Driver
+  #邮箱配置
+  mail:
+    host: smtp.qq.com
+    username: 2905997477@qq.com
+    password: kykevuwigpqudfgc
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  redis:
+    database: 0
+    host: 127.0.0.1
+upload:
+  qiniu:
+    ak: m7mFmCTX55PMNPkEBaOLFQMLxW4ZFfZwf2EBm1M2
+    sk: dn220PqIs813-IYrIZtzO_bGLXPo3QSVNep6wNty
+    bucketname: 2002-images
+    url: http://qf73yuqaz.hd-bkt.clouddn.com/
+mybatis:
+  type-aliases-package: com.fection.www.pojo
+  mapper-locations: classpath:mapping/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+

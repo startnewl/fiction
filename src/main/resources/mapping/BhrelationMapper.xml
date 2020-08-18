@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fection.www.mapper.BhrelationMapper">
+  <resultMap id="BaseResultMap" type="com.fection.www.pojo.BhrelationKey">
+    <id column="bid" jdbcType="INTEGER" property="bid" />
+    <id column="hid" jdbcType="INTEGER" property="hid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.fection.www.pojo.BhrelationKey">
+    delete from b_h_relation
+    where bid = #{bid,jdbcType=INTEGER}
+      and hid = #{hid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fection.www.pojo.BhrelationKey">
+    insert into b_h_relation (bid, hid)
+    values (#{bid,jdbcType=INTEGER}, #{hid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fection.www.pojo.BhrelationKey">
+    insert into b_h_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bid != null">
+        bid,
+      </if>
+      <if test="hid != null">
+        hid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bid != null">
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="hid != null">
+        #{hid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

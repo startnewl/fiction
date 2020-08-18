@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fection.www.mapper.AprelationMapper">
+  <resultMap id="BaseResultMap" type="com.fection.www.pojo.AprelationKey">
+    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.fection.www.pojo.AprelationKey">
+    delete from a_p_relation
+    where aid = #{aid,jdbcType=INTEGER}
+      and pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fection.www.pojo.AprelationKey">
+    insert into a_p_relation (aid, pid)
+    values (#{aid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fection.www.pojo.AprelationKey">
+    insert into a_p_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

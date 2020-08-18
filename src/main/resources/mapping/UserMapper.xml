@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fection.www.mapper.UserMapper">
+  <select id="getAllUser" resultType="User">
+    select * from user
+  </select>
+  <select id="getAllByUid" resultType="User">
+    select * from user where uid=#{uid}
+  </select>
+  <insert id="insertUser">
+    insert into user (uid , uname , uemail , uphone) values(#{uid},#{uname},#{uemail},#{uphone})
+  </insert>
+  <insert id="insertImges">
+    insert into images (uid , uimg) values (#{uid} , #{uimg})
+  </insert>
+</mapper>

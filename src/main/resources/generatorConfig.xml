@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+    <!-- 链接数据库的jar包的完整路径，一定要注意跟自己的仓库路径一致 ，注意修改  -->
+    <classPathEntry location="D:\apache-maven-3.5.2\repo\mysql\mysql-connector-java\5.1.48\mysql-connector-java-5.1.48.jar" ></classPathEntry>
+    <context id="context1" >
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://101.200.189.99:3306/bh?characterEncoding=utf-8"
+                        userId="bh"
+                        password="root" />
+        <!-- 生成POJO类的位置,targetPackage生成的实体类的包名,targetProject是实体类包名生成的位置 -->
+        <javaModelGenerator targetPackage="com.fection.www.pojo" targetProject="src/main/java" />
+        <!-- mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources" />
+        <!-- mapper接口生成的位置 -->
+        <javaClientGenerator targetPackage="com.fection.www.mapper" targetProject="src/main/java" type="XMLMAPPER" />
+        <table  tableName="a_p_relation" domainObjectName="Aprelation"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="admin" domainObjectName="Admin"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="au_p_relation" domainObjectName="Auprelation"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="author" domainObjectName="Author"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="b_h_relation" domainObjectName="Bhrelation"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="book" domainObjectName="Book"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="bookrack" domainObjectName="Bookrack"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="booktype" domainObjectName="Booktype"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="hot" domainObjectName="Hot"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="images" domainObjectName="Images"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="p_r_relation" domainObjectName="Prrelation"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="permissions" domainObjectName="Permissions"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="role" domainObjectName="Role"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="u_r_relation" domainObjectName="Urrelation"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+        <table  tableName="user" domainObjectName="User"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+    </context>
+</generatorConfiguration>

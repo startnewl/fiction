@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fection.www.mapper.AuthorMapper">
+  <resultMap id="BaseResultMap" type="com.fection.www.pojo.Author">
+    <id column="auid" jdbcType="INTEGER" property="auid" />
+    <result column="auname" jdbcType="VARCHAR" property="auname" />
+    <result column="aupass" jdbcType="VARCHAR" property="aupass" />
+    <result column="auemail" jdbcType="VARCHAR" property="auemail" />
+    <result column="auphone" jdbcType="VARCHAR" property="auphone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    auid, auname, aupass, auemail, auphone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from author
+    where auid = #{auid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from author
+    where auid = #{auid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fection.www.pojo.Author">
+    insert into author (auid, auname, aupass, 
+      auemail, auphone)
+    values (#{auid,jdbcType=INTEGER}, #{auname,jdbcType=VARCHAR}, #{aupass,jdbcType=VARCHAR}, 
+      #{auemail,jdbcType=VARCHAR}, #{auphone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fection.www.pojo.Author">
+    insert into author
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="auid != null">
+        auid,
+      </if>
+      <if test="auname != null">
+        auname,
+      </if>
+      <if test="aupass != null">
+        aupass,
+      </if>
+      <if test="auemail != null">
+        auemail,
+      </if>
+      <if test="auphone != null">
+        auphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="auid != null">
+        #{auid,jdbcType=INTEGER},
+      </if>
+      <if test="auname != null">
+        #{auname,jdbcType=VARCHAR},
+      </if>
+      <if test="aupass != null">
+        #{aupass,jdbcType=VARCHAR},
+      </if>
+      <if test="auemail != null">
+        #{auemail,jdbcType=VARCHAR},
+      </if>
+      <if test="auphone != null">
+        #{auphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fection.www.pojo.Author">
+    update author
+    <set>
+      <if test="auname != null">
+        auname = #{auname,jdbcType=VARCHAR},
+      </if>
+      <if test="aupass != null">
+        aupass = #{aupass,jdbcType=VARCHAR},
+      </if>
+      <if test="auemail != null">
+        auemail = #{auemail,jdbcType=VARCHAR},
+      </if>
+      <if test="auphone != null">
+        auphone = #{auphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where auid = #{auid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fection.www.pojo.Author">
+    update author
+    set auname = #{auname,jdbcType=VARCHAR},
+      aupass = #{aupass,jdbcType=VARCHAR},
+      auemail = #{auemail,jdbcType=VARCHAR},
+      auphone = #{auphone,jdbcType=VARCHAR}
+    where auid = #{auid,jdbcType=INTEGER}
+  </update>
+</mapper>
