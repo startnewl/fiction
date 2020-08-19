@@ -1,10 +1,10 @@
-package com.fection.www.mapper;
+package com.fection.www.service;
 
 import com.fection.www.pojo.Role;
 
 import java.util.List;
 
-public interface RoleMapper {
+public interface IRoleService {
     List<Role> getAllRole();
     Role getAllByRid(Integer rid);
     int insertRole(Role role);

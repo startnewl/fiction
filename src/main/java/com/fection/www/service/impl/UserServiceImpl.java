@@ -26,32 +26,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public int insertUser(UserImg userImg) {
-
-        try {
-            User u = new User();
-
-            u.setUid(1);
-            u.setUemail(userImg.getUemail());
-            u.setUname(userImg.getUname());
-            u.setUphone(userImg.getUphone());
-
-            userMapper.insertUser(u);
-
-            Images i = new Images();
-            i.setUid(u.getUid());
-            i.setUimg(userImg.getUimg());
-
-            userMapper.insertImges(i);
-
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-
-
-
+    public int insertUser(User user) {
+        return userMapper.insertUser(user);
     }
 
     @Override

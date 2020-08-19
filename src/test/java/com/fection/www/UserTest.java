@@ -18,7 +18,6 @@ public class UserTest {
     IUserService userService;
     @Test
     public void testuser(){
-        UserImg u=new UserImg("zhangjunjun","123456@qq.com","12345678910","1111111111");
-        System.out.println(userService.insertUser(u));
+        System.out.println(userService.insertUser(new User()));
     }
 }

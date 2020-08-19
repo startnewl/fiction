@@ -8,9 +8,12 @@
     select * from user where uid=#{uid}
   </select>
   <insert id="insertUser">
-    insert into user (uid , uname , uemail , uphone) values(#{uid},#{uname},#{uemail},#{uphone})
+    insert into user values(#{uid},#{brid},#{uname},#{uemail},#{uphone})
   </insert>
-  <insert id="insertImges">
-    insert into images (uid , uimg) values (#{uid} , #{uimg})
-  </insert>
+  <update id="updateUser">
+    update user set brid=#{brid}uname=#{uname},uemail=#{uemail},uphone=#{uphone} where uid=#{uid}
+  </update>
+  <delete id="deleteUser">
+    delete from user where uid=#{uid}
+  </delete>
 </mapper>

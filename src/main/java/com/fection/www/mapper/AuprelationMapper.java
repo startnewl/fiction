@@ -9,5 +9,4 @@ public interface AuprelationMapper {
 
     int insertSelective(AuprelationKey record);
 
-
 }

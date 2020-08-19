@@ -11,6 +11,4 @@ public interface UserMapper {
     int insertUser(User user);
     int updateUser(User user);
     int deleteUser(Integer uid);
-
-    void insertImges(Images i);
 }

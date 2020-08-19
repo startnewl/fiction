@@ -15,11 +15,11 @@ public class AdmianController {
     public List<Admin> getAllAdmin(){
         return adminService.getAllAdmin();
     }
-    @RequestMapping("/getAllByAid/{aid}")
+    @GetMapping("/getAllByAid/{aid}")
     public Admin getAllByAid(@PathVariable("aid") Integer aid){
         return adminService.getAllByAid(aid);
     }
-    @RequestMapping("/insertAdmin")
+    @GetMapping("/insertAdmin")
     public Integer insertAdmin(@RequestBody Admin admin){
         if(adminService.insertAdmin(admin)>0){
             return 1;
@@ -27,7 +27,7 @@ public class AdmianController {
             return 0;
         }
     }
-    @RequestMapping("/updateAdmin")
+    @GetMapping("/updateAdmin")
     public Integer updateAdmin(@RequestBody Admin admin){
         if(adminService.updateAdmin(admin)>0){
             return 1;
@@ -35,7 +35,7 @@ public class AdmianController {
             return 0;
         }
     }
-    @RequestMapping("/deleteAdmin/{aid}")
+    @GetMapping("/deleteAdmin/{aid}")
     public Integer deleteAdmin(@PathVariable("aid") Integer aid){
         if(adminService.deleteAdmin(aid)>0){
             return 1;

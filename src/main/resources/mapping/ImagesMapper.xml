@@ -1,93 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fection.www.mapper.ImagesMapper">
-  <resultMap id="BaseResultMap" type="com.fection.www.pojo.Images">
-    <id column="iid" jdbcType="INTEGER" property="iid" />
-    <result column="bid" jdbcType="INTEGER" property="bid" />
-    <result column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="uimg" jdbcType="VARCHAR" property="uimg" />
-    <result column="bimg" jdbcType="VARCHAR" property="bimg" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    iid, bid, uid, uimg, bimg
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from images
-    where iid = #{iid,jdbcType=INTEGER}
+  <select id="getAllImages" resultType="Images">
+    select * from images
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from images
-    where iid = #{iid,jdbcType=INTEGER}
+  <select id="getAllByIid" resultType="Images">
+    select * from images where iid=#{iid}
+  </select>
+  <insert id="insertImages">
+    insert into images values(#{iid},#{bid},#{uid},#{uimg}#{bimg}),
+  </insert>
+  <update id="updateImages">
+    update images set bid=#{bid},uid=#{uid},uimg=#{uimg},bimg=#{bimg
+    } where iid=#{iid}
+  </update>
+  <delete id="deleteImages">
+    delete from images where iid=#{iid}
   </delete>
-  <insert id="insert" parameterType="com.fection.www.pojo.Images">
-    insert into images (iid, bid, uid, 
-      uimg, bimg)
-    values (#{iid,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
-      #{uimg,jdbcType=VARCHAR}, #{bimg,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.fection.www.pojo.Images">
-    insert into images
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="iid != null">
-        iid,
-      </if>
-      <if test="bid != null">
-        bid,
-      </if>
-      <if test="uid != null">
-        uid,
-      </if>
-      <if test="uimg != null">
-        uimg,
-      </if>
-      <if test="bimg != null">
-        bimg,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="iid != null">
-        #{iid,jdbcType=INTEGER},
-      </if>
-      <if test="bid != null">
-        #{bid,jdbcType=INTEGER},
-      </if>
-      <if test="uid != null">
-        #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="uimg != null">
-        #{uimg,jdbcType=VARCHAR},
-      </if>
-      <if test="bimg != null">
-        #{bimg,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fection.www.pojo.Images">
-    update images
-    <set>
-      <if test="bid != null">
-        bid = #{bid,jdbcType=INTEGER},
-      </if>
-      <if test="uid != null">
-        uid = #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="uimg != null">
-        uimg = #{uimg,jdbcType=VARCHAR},
-      </if>
-      <if test="bimg != null">
-        bimg = #{bimg,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where iid = #{iid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fection.www.pojo.Images">
-    update images
-    set bid = #{bid,jdbcType=INTEGER},
-      uid = #{uid,jdbcType=INTEGER},
-      uimg = #{uimg,jdbcType=VARCHAR},
-      bimg = #{bimg,jdbcType=VARCHAR}
-    where iid = #{iid,jdbcType=INTEGER}
-  </update>
 </mapper>
